@@ -1,0 +1,133 @@
+/* Custom CSS Variables & Base Setup */
+:root {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+}
+
+body {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  background-attachment: fixed;
+}
+
+/* Glassmorphism Utilities */
+.glass-header {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 1);
+  box-shadow: 0 10px 40px -10px rgba(31, 38, 135, 0.08);
+}
+
+/* Hover effect for cards */
+.hover-scale {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-scale:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -10px rgba(31, 38, 135, 0.12);
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
+}
+
+/* Hidden elements for native datepicker overlay */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+
+/* Checkbox Styles for Allergy - Hidden native checkbox, stylized label */
+.allergy-checkbox-wrapper {
+  cursor: pointer;
+}
+.allergy-checkbox-input {
+  display: none;
+}
+.allergy-checkbox-content {
+  border: 2px solid #e2e8f0; /* slate-200 */
+  background-color: white;
+  transition: all 0.2s ease;
+}
+.allergy-checkbox-input:checked + .allergy-checkbox-content {
+  background-color: #fdf2f8; /* pink-50 */
+  border-color: #ec4899; /* pink-500 */
+  color: #be185d; /* pink-700 */
+  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.15);
+}
+
+/* Modal Animations */
+.modal-active {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.modal-active .modal-content {
+  transform: scale(1) !important;
+}
+
+/* Menu Item Staggered Animation */
+.dish-item {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Allergy Warning Highlight */
+.allergy-warning {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%); /* rose-50 to rose-100 */
+  border: 1px solid rgba(244, 63, 94, 0.3); /* rose-500 */
+  border-radius: 0.75rem;
+  padding-left: 1rem;
+}
+.allergy-warning::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: #f43f5e; /* rose-500 */
+}
+.allergy-warning-text {
+  color: #e11d48; /* rose-600 */
+  font-weight: 700;
+}
